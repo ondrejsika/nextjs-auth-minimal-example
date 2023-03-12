@@ -17,12 +17,27 @@ export const authOptions = {
             id: profile.sub,
             name: profile.name,
             email: profile.email,
+            groups: profile.groups,
           }
         },
       }
   ],
   theme: {
     colorScheme: "light",
+  },
+  callbacks: {
+    async jwt({ token, profile }) {
+      if (profile && profile.groups) {
+        token.groups = profile.groups
+      }
+      return token
+    },
+    async session({ session, token }) {
+      if (token && token.groups) {
+        session.groups = token.groups
+      }
+      return session
+    }
   },
 }
 
