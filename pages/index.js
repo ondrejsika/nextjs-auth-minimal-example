@@ -3,9 +3,21 @@ import { signIn, signOut, useSession } from "next-auth/react"
 export default function Home() {
     const { data: session, status } = useSession()
     return <>
-        <a href="/api/auth/signin">Sign in</a>
+        <a
+          href="/api/auth/signin"
+          onClick={(e) => {
+            e.preventDefault()
+            signIn("keycloak")
+          }}
+        >Sign in</a>
         <br />
-        <a href="/api/auth/signout">Sign out</a>
+        <a
+          href="/api/auth/signout"
+          onClick={(e) => {
+            e.preventDefault()
+            signOut()
+          }}
+        >Sign out</a>
         <pre>{JSON.stringify(session, null, 2)}</pre>
         <br />
         <pre>{JSON.stringify(status, null, 2)}</pre>
