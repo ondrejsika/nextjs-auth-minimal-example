@@ -30,11 +30,17 @@ export const authOptions = {
       if (profile && profile.groups) {
         token.groups = profile.groups
       }
+      if (profile && profile.roles) {
+        token.roles = profile.roles
+      }
       return token
     },
     async session({ session, token }) {
       if (token && token.groups) {
         session.groups = token.groups
+      }
+      if (token && token.roles) {
+        session.roles = token.roles
       }
       return session
     }
