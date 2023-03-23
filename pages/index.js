@@ -22,7 +22,11 @@ export default function Home() {
         <br />
         <pre>{JSON.stringify(status, null, 2)}</pre>
         <br />
+        <a href="/api/session" target="_blank">/api/session</a>
+        <br />
         <iframe src="/api/session" />
+        <br />
+        <a href="/api/jwt" target="_blank">/api/jwt</a>
         <br />
         <iframe src="/api/jwt" />
     </>
