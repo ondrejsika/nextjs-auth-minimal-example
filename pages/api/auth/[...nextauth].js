@@ -22,9 +22,6 @@ export const authOptions = {
         },
       }
   ],
-  theme: {
-    colorScheme: "light",
-  },
   callbacks: {
     async jwt({ token, profile }) {
       if (profile && profile.groups) {
